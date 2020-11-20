@@ -15,7 +15,7 @@ const RoutesExample = () => {
       <Router>
         <div className="navBar">
           <Link
-            to="/"
+            to="BLOG/"
             className={`navBar__link ${active && 'active'} `}
             onClick={() => setActive(true)}
           >
@@ -23,7 +23,7 @@ const RoutesExample = () => {
           </Link>
           &nbsp;&nbsp;&nbsp;
           <Link
-            to="/about"
+            to="BLOG/about"
             className={`navBar__link ${!active && 'active'} `}
             onClick={() => setActive(false)}
           >
@@ -32,19 +32,19 @@ const RoutesExample = () => {
           &nbsp;&nbsp;&nbsp;
         </div>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="BLOG/">
             <Home />
           </Route>
-          <Route exact path="/about">
+          <Route exact path="BLOG/about">
             <About />
           </Route>
           {/* <Route exact path="/contact">
             <Contact />
           </Route> */}
-          <Route exact path="/404">
+          <Route exact path="BLOG/404">
             <NotFound />
           </Route>
-          <Route exact path="/post/:postId">
+          <Route exact path="BLOG/post/:postId">
             <Post />
           </Route>
         </Switch>

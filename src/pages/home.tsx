@@ -25,7 +25,7 @@ const Home = () => {
             {postsArr.map(({ id, title, category }) => (
               <div key={id} className="post__small">
 
-                <Link to={`post/${id}`} className="heading">{title}</Link>
+                <Link to={`BLOG/post/${id}`} className="heading">{title}</Link>
 
                 <div>
                   {category.map((c) => (

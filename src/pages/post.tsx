@@ -16,7 +16,7 @@ const Post = () => {
   useEffect(() => {
     const post = posts.find((item) => item.id === postId);
     if (!post) {
-      history.push('/404');
+      history.push('BLOG/404');
     }
     setOnePost(post);
     const storageComments = localStorage.getItem(`comments${post?.id}`);
@@ -25,7 +25,7 @@ const Post = () => {
   }, []);
 
   const backToHome = () => {
-    history.push('/');
+    history.push('BLOG/');
   };
   const handleSaveInput = () => {
     // if (comments) {
