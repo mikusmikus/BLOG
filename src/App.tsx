@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from 'react-router-dom';
 import './App.css';
 import 'flexboxgrid';
 import Home from './pages/home';
@@ -35,17 +41,15 @@ const RoutesExample = () => {
           <Route exact path="/BLOG/">
             <Home />
           </Route>
-          <Route exact path="/BLOG/about">
+          <Route path="/BLOG/about">
             <About />
-          </Route>
-          {/* <Route exact path="/contact">
-            <Contact />
-          </Route> */}
-          <Route exact path="/BLOG/404">
-            <NotFound />
           </Route>
           <Route exact path="/BLOG/post/:postId">
             <Post />
+          </Route>
+          <Route path="/BLOG/">
+            <Redirect push to="/BLOG/404" />
+            <NotFound />
           </Route>
         </Switch>
       </Router>
