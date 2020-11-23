@@ -1,0 +1,13 @@
+.ScrollUp{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 3333333;
+    border:none;
+    outline: none;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.ScrollUp:hover{
+    opacity: 0.8;
+}

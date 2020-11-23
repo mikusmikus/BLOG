@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import AddComment from '../addComment/addComment';
 import { PostType, PictureType } from '../../pages/home';
 import './hero.css';
+import Loader from '../loader/loader';
 
 type Props = {
   postId: string;
@@ -47,6 +48,8 @@ const Hero: FC<Props> = ({
       </button>
 
       <div className="hero">
+        <Loader /> 
+        {/* kā pareizi uzlikt */}
         <h3 className="title">{onePost?.title}</h3>
         <p className="body">{onePost?.body}</p>
 

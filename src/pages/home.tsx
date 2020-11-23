@@ -60,11 +60,12 @@ const Home = () => {
         paddingTop: '50px',
       }}
     >
-      <div className="row center-xs">
+      {window.scrollY >= 500 ? <ScrollUp /> : <></>}
+      {/* <div className="row center-xs">
         <div className="col-12">
           <h2>WELCOME TO MY BLOG</h2>
         </div>
-      </div>
+      </div> */}
       <div className="container container-fluid home">
         <div className="row middle-xs">
           {postsArr.map(({ id, title }, index) => (
@@ -78,7 +79,7 @@ const Home = () => {
             </div>
           ))}
         </div>
-        {postsArr.length === 100 && <ScrollUp />}
+        {/* {postsArr.length === 100 && <ScrollUp />} */}
       </div>
     </section>
   );
