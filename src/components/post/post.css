@@ -53,3 +53,10 @@
     transition: color, opacity 0.2s;
     /* flex-wrap: wrap */
 }
+
+@media only screen and (max-width: 600px) {
+    .heading{
+        font-size: 15px;
+    }
+    
+  }

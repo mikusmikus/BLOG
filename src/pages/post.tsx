@@ -5,15 +5,12 @@ import { useParams, useHistory } from 'react-router-dom';
 import type { PostType, PictureType } from './home';
 import { blogAPI, pictureAPI } from './home';
 import Hero from '../components/hero/hero';
-import Loader from '../components/loader/loader';
 
 const Post = () => {
   const [onePost, setOnePost] = useState<PostType>();
   const [onePicture, setOnePicture] = useState<PictureType>();
   const [comments, setComments] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState('');
-  const [loader, setLoader] = useState(true);
-
   const { postId } = useParams<{ postId: string }>();
   const history = useHistory();
 
@@ -22,10 +19,6 @@ const Post = () => {
   };
 
   useEffect(() => {
-    setLoader(true);
-    setTimeout(() => {
-      setLoader(false);
-    }, 100);
     const copyArr: string[] = [];
     setInputValue('');
     setComments(copyArr);
@@ -57,21 +50,17 @@ const Post = () => {
     <div className="container container-fluid">
       <div className="row">
         <div className="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
-          {loader ? (
-            <Loader />
-          ) : (
-            <Hero
-              postId={postId}
-              comments={comments}
-              onePost={onePost}
-              onePicture={onePicture}
-              inputValue={inputValue}
-              saveCommentHandler={saveComentHandler}
-              inputChangeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setInputValue(e.target.value)
-              }
-            />
-          )}
+          <Hero
+            postId={postId}
+            comments={comments}
+            onePost={onePost}
+            onePicture={onePicture}
+            inputValue={inputValue}
+            saveCommentHandler={saveComentHandler}
+            inputChangeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setInputValue(e.target.value)
+            }
+          />
         </div>
       </div>
     </div>
