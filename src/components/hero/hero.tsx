@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
 import AddComment from '../addComment/addComment';
 import { PostType, PictureType } from '../../pages/home';
 import './hero.css';
-import Loader from '../loader/loader';
+// import Loader from '../loader/loader';
 
 type Props = {
   postId: string;
@@ -48,12 +49,14 @@ const Hero: FC<Props> = ({
       </button>
 
       <div className="hero">
-        <Loader /> 
+        {/* <Loader />  */}
         {/* kā pareizi uzlikt */}
-        <h3 className="title">{onePost?.title}</h3>
-        <p className="body">{onePost?.body}</p>
+        <div className="hero__text">
+          <h3 className="title">{onePost?.title}</h3>
+          <p className="body">{onePost?.body}</p>
+        </div>
 
-        <div className="comments">
+        <div className="hero__comments">
           <ol>
             {comments &&
               comments.map((comment) => (
@@ -66,21 +69,19 @@ const Hero: FC<Props> = ({
             saveCommentHandler={saveCommentHandler}
           />
         </div>
-        <button
-          type="button"
-          className="prev"
-          disabled={Number(postId) <= 1}
-          onClick={prevHandler}
-        >
-          <span className="arrow arrow-prev" />
+        <button type="button" className="prev" onClick={prevHandler} disabled={Number(postId) <= 1}>
+          <button
+            type="button"
+            className="arrow arrow-prev"
+            disabled={Number(postId) <= 1}
+          />
         </button>
-        <button
-          type="button"
-          className="next"
-          disabled={Number(postId) >= 100}
-          onClick={nextHandler}
-        >
-          <span className="arrow arrow-next" />
+        <button type="button" className="next" onClick={nextHandler} disabled={Number(postId) >= 100}>
+          <button
+            type="button"
+            className="arrow arrow-next"
+            disabled={Number(postId) >= 100}
+          />
         </button>
         <div className="overlay" />
         {onePicture && (

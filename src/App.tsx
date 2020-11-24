@@ -12,37 +12,28 @@ import Home from './pages/home';
 import About from './pages/about';
 import NotFound from './pages/404';
 import Post from './pages/post';
+import Gallery from './pages/gallery';
+import NavBar from './components/navBar/navBar';
+import Login from './pages/login';
 
 const RoutesExample = () => {
-  const [active, setActive] = useState(true);
 
   return (
     <div>
       <Router>
-        <div className="navBar">
-          <Link
-            to="/BLOG/"
-            className={`navBar__link ${active && 'active'} `}
-            onClick={() => setActive(true)}
-          >
-            Home{' '}
-          </Link>
-          &nbsp;&nbsp;&nbsp;
-          <Link
-            to="/BLOG/about"
-            className={`navBar__link ${!active && 'active'} `}
-            onClick={() => setActive(false)}
-          >
-            About{' '}
-          </Link>
-          &nbsp;&nbsp;&nbsp;
-        </div>
+        <NavBar />
         <Switch>
           <Route exact path="/BLOG/">
             <Home />
           </Route>
           <Route path="/BLOG/about">
             <About />
+          </Route>
+          <Route path="/BLOG/gallery">
+            <Gallery />
+          </Route>
+          <Route path="/BLOG/login">
+            <Login />
           </Route>
           <Route exact path="/BLOG/post/:postId">
             <Post />

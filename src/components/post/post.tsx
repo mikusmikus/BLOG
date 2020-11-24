@@ -12,7 +12,7 @@ type Props = {
 const Post: FC<Props> = ({ id,  title, pictureArr, singlePostClickHandler }) => {
 
   return (
-    <>
+    <section className='post-wrapper'>
       <button
         type="button"
         className="post"
@@ -31,7 +31,7 @@ const Post: FC<Props> = ({ id,  title, pictureArr, singlePostClickHandler }) => 
           )}
         </div>
       </button>
-    </>
+    </section>
   );
 };
 

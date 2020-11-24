@@ -26,6 +26,7 @@ const Home = () => {
   const [postsArr, setPostsArr] = useState<PostType[]>([]);
   const [picturesArr, setPicturesArr] = useState<PictureType[]>([]);
   const [picturesPage, setPicturesPage] = useState(pictureAPI);
+  const [showScrollButton, setShowScrollButton] = useState(false);
   const nextPage = useRef({ next: '' });
   const history = useHistory();
 
@@ -53,23 +54,29 @@ const Home = () => {
   useBottomScrollListener(() => {
     setPicturesPage(nextPage.current.next);
   });
+  
+  window.onscroll = () => scrollFunction();
+  const scrollFunction = () => {
+    if (window.scrollY >= 800) {
+      setShowScrollButton(true);
+    }
+    if (window.scrollY < 800) {
+      setShowScrollButton(false);
+    }
+  };
 
   return (
     <section
       style={{
-        paddingTop: '50px',
+        paddingTop: '90px',
       }}
     >
-      {window.scrollY >= 500 ? <ScrollUp /> : <></>}
-      {/* <div className="row center-xs">
-        <div className="col-12">
-          <h2>WELCOME TO MY BLOG</h2>
-        </div>
-      </div> */}
-      <div className="container container-fluid home">
+      {showScrollButton && <ScrollUp />}
+
+      <div className="container container-fluid ">
         <div className="row middle-xs">
           {postsArr.map(({ id, title }, index) => (
-            <div key={id} className="col-sm-offset-2 col-sm-8 col-xs-12">
+            <div key={id} className="col-sm-offset-2 col-sm-8 col-xs-11">
               <Post
                 id={id}
                 title={title}
@@ -79,7 +86,6 @@ const Home = () => {
             </div>
           ))}
         </div>
-        {/* {postsArr.length === 100 && <ScrollUp />} */}
       </div>
     </section>
   );
