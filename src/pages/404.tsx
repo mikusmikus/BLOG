@@ -9,7 +9,7 @@ const NotFound = () => {
       <div className="container notFound">
         <div className="row">
           <div className="col-xs-12">
-            <button type="button" className='button__back' onClick={() => history.push('/BLOG/')}>
+            <button type="button" className='button__back' onClick={() => history.push('/')}>
               Back to home
             </button>
             <img

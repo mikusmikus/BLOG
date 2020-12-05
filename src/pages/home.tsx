@@ -84,7 +84,7 @@ const Home = () => {
                 id={id}
                 title={title}
                 pictureArr={picturesArr[index]}
-                singlePostClickHandler={() => history.push(`/BLOG/post/${id}`)}
+                singlePostClickHandler={() => history.push(`/post/${id}`)}
               />
             </div>
           ))}
