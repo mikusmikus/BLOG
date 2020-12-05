@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link,
@@ -23,23 +23,23 @@ const RoutesExample = () => {
       <Router>
         <NavBar />
         <Switch>
-          <Route exact path="/BLOG/">
+          <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/BLOG/about">
+          <Route path="/about">
             <About />
           </Route>
-          <Route path="/BLOG/gallery">
+          <Route path="/gallery">
             <Gallery />
           </Route>
-          <Route path="/BLOG/login">
+          <Route path="/login">
             <Login />
           </Route>
-          <Route exact path="/BLOG/post/:postId">
+          <Route exact path="/post/:postId">
             <Post />
           </Route>
-          <Route path="/BLOG/">
-            <Redirect push to="/BLOG/404" />
+          <Route path="/">
+            <Redirect push to="/404" />
             <NotFound />
           </Route>
         </Switch>

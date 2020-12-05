@@ -27,15 +27,15 @@ const Hero: FC<Props> = ({
 }) => {
   const history = useHistory();
   const nextHandler = () => {
-    history.push(`/BLOG/post/${Number(postId) + 1}`);
+    history.push(`/post/${Number(postId) + 1}`);
   };
 
   const prevHandler = () => {
-    history.push(`/BLOG/post/${Number(postId) - 1}`);
+    history.push(`/post/${Number(postId) - 1}`);
   };
 
   const backToHome = () => {
-    history.push('/BLOG/');
+    history.push('/');
   };
   return (
     <div className="hero-wrapper">

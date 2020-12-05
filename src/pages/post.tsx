@@ -27,7 +27,7 @@ const Post = () => {
         setOnePost(data);
       })
       .catch(() => {
-        history.push('/BLOG/404');
+        history.push('/404');
       });
     getData(`${pictureAPI}/${postId}`).then(({ data }) => {
       setOnePicture(data.image);
@@ -36,6 +36,8 @@ const Post = () => {
     storageComments && setComments(JSON.parse(storageComments));
   }, [postId]);
 
+
+  
   const saveComentHandler = () => {
     const copyArr = [...comments];
     if (inputValue) {
