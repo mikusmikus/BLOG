@@ -8,7 +8,7 @@ const NavBar = () => {
       <div className="container ">
         <div className="row">
           <div className="col-xs-2 col-sm-2 col-sm-offset-2">
-            <NavLink to="/BLOG/">
+            <NavLink to="/">
               <img
                 src="https://svgsilh.com/svg/309113.svg"
                 alt="home__image"
@@ -19,13 +19,13 @@ const NavBar = () => {
           </div>
           <div className="col-xs-10 col-sm-6">
             <div className="navBar">
-              <NavLink to="/BLOG/gallery" className="navBar__link">
+              <NavLink to="/gallery" className="navBar__link">
                 Gallery
               </NavLink>
-              <NavLink to="/BLOG/about" className="navBar__link">
+              <NavLink to="/about" className="navBar__link">
                 About
               </NavLink>
-              <NavLink to="/BLOG/login" className="navBar__link">
+              <NavLink to="/login" className="navBar__link">
                 Login
               </NavLink>
             </div>
